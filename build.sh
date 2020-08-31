@@ -98,7 +98,7 @@ if [ ${BUILD} -eq 1 ]; then
 	cd tmp/backports && \
 		patch -p1 --dry-run < ${MATRIX_RTL8187_PATCH} && patch -p1 < ${MATRIX_RTL8187_PATCH} && \
 		patch -p1 --dry-run < ${KALI_INJECTION_PATCH} && patch -p1 < ${KALI_INJECTION_PATCH} && \
-		make defconfig-rtl8187 && make && cd - &> /dev/null
+		make defconfig-wifi && make && cd - &> /dev/null
 
 	if [ $? -ne 0 ]; then
 		echo "! Failed to build rtl8187 wireless driver."
