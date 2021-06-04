@@ -94,6 +94,8 @@ if [ ${BUILD} -eq 1 ]; then
 		rm -rf backports.tar.xz
 		exit 1
 	fi
+	#Fix freeze
+	sed -i "s\cat $^ ;\cat ${PWD}/tmp/backports/net/wireless/certs/sforshee.hex ;\g" tmp/backports/net/wireless/Makefile
 
 	cd tmp/backports && \
 		patch -p1 --dry-run < ${MATRIX_RTL8187_PATCH} && patch -p1 < ${MATRIX_RTL8187_PATCH} && \
